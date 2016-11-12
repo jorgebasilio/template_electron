@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/welcome.styl'
+import styles from '../styles/main.styl'
 import CSSModules from '../lib/CSSModules'
 
 class Main extends React.Component {
