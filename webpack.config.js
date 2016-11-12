@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+const path = require('path')
+var poststylus = require('poststylus');
 
 const TARGET = process.env.npm_lifecycle_event;
 
@@ -9,11 +11,14 @@ module.exports = {
     filename: "bundle.js"
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.styl']
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
+      {
+        test: /\.css$/,
+        loader: "style!css"
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -21,9 +26,21 @@ module.exports = {
         query: {
           presets: ['es2015']
         }
-      }
+      },
+      {
+        test: /\.styl$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[path]!stylus?sourceMap'
+      },
     ]
-  }
+  },
+  stylus: {
+    use: [require('nib')()],
+    import: [
+      '~nib/lib/nib/index.styl',
+      path.join(__dirname, 'app/styles/main.styl')
+    ]
+  },
 };
 
 process.env.BABEL_ENV = TARGET;

@@ -3,8 +3,8 @@
 // All of the Node.js APIs are available in this process.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloMessage from './components/welcome';
+import Main from './components/main.js';
 
 ReactDOM.render(
-  <HelloMessage />, document.getElementById('container')
+  <Main />, document.getElementById('container')
 );
