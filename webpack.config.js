@@ -5,7 +5,7 @@ var poststylus = require('poststylus');
 const TARGET = process.env.npm_lifecycle_event;
 
 module.exports = {
-  entry: "./app/main.js",
+  entry: "./app/src/main.js",
   output: {
     path: './dist',
     filename: "bundle.js"
@@ -22,9 +22,9 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a valid name to reference
+        loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react']
         }
       },
       {

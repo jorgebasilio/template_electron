@@ -1,5 +1,5 @@
-import CSSModules from 'react-css-modules'
+import CSSModules from 'react-css-modules';
 
-export default function (component, styles) {
+export default (component, styles) => {
   return CSSModules(component, styles, {errorWhenNotFound: false})
-}
+};
